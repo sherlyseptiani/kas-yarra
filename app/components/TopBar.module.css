@@ -1,0 +1,62 @@
+.topbar {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandMark {
+  width: 8px;
+  height: 8px;
+  background: var(--amber);
+  border-radius: 1px;
+}
+
+.brandName {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.brandSub {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.topnav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.topnav a {
+  color: var(--text-2);
+  text-decoration: none;
+  font-size: 12.5px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.topnav a:hover {
+  color: var(--text);
+}
+
+.topnav a.active {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.topnavSep {
+  color: var(--text-4);
+  font-size: 11px;
+  padding: 0 4px;
+}

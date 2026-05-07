@@ -1,0 +1,51 @@
+.progressRow {
+  padding: 22px 0 26px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.pct {
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 44px;
+}
+
+.bar {
+  flex: 1;
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--text);
+}
+
+.legend {
+  font-size: 12px;
+  color: var(--text-3);
+  display: flex;
+  gap: 16px;
+}
+
+.legend span::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  vertical-align: 1px;
+}
+
+.legend .paid::before {
+  background: var(--text);
+}
+
+.legend .open::before {
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+}

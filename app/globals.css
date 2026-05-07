@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --surface-2: #f5f3ec;
+  --line: #e8e3d4;
+  --line-2: #d8d2bf;
+  --text: #1a1814;
+  --text-2: #4a4640;
+  --text-3: #7a7468;
+  --text-4: #a8a193;
+  --amber: #b8893a;
+  --amber-soft: #fbf3df;
+  --rose: #b06060;
+  --rose-soft: #fbe9e9;
+  --emerald: #5a8a6a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "cv11";
+}
+
+body {
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.mono {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-feature-settings: "zero";
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Layout */
+.shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 720px) {
+  .shell {
+    padding: 0 20px;
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--amber);
+  color: var(--bg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line-2);
+  border: 2px solid var(--bg);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-4);
+}
