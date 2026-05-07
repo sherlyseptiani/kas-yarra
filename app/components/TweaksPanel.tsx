@@ -1,6 +1,6 @@
 'use client';
 
-import { CloseIcon } from './Icons';
+import { CloseIcon, SunIcon, MoonIcon } from './Icons';
 import styles from './TweaksPanel.module.css';
 
 interface TweaksPanelProps {
@@ -10,8 +10,8 @@ interface TweaksPanelProps {
   setViewMode: (mode: 'table' | 'grouped') => void;
   groupBy: 'status' | 'block';
   setGroupBy: (by: 'status' | 'block') => void;
-  hideClose: boolean;
-  setHideClose: (hide: boolean) => void;
+  theme: 'light' | 'dark';
+  setTheme: (theme: 'light' | 'dark') => void;
 }
 
 export default function TweaksPanel({
@@ -21,8 +21,8 @@ export default function TweaksPanel({
   setViewMode,
   groupBy,
   setGroupBy,
-  hideClose,
-  setHideClose,
+  theme,
+  setTheme,
 }: TweaksPanelProps) {
   if (!isOpen) return null;
 
@@ -76,18 +76,20 @@ export default function TweaksPanel({
           </div>
         </div>
         <div className={styles.tweaksRow}>
-          <div className={styles.switch}>
-            <label htmlFor="tw-collapse-close">Hide "Almost there"</label>
-            <input
-              type="checkbox"
-              id="tw-collapse-close"
-              checked={hideClose}
-              onChange={(e) => setHideClose(e.target.checked)}
-            />
-            <span
-              className={styles.track}
-              onClick={() => setHideClose(!hideClose)}
-            ></span>
+          <div className={styles.tweaksLbl}>Theme</div>
+          <div className={styles.seg}>
+            <button
+              className={theme === 'light' ? styles.active : ''}
+              onClick={() => setTheme('light')}
+            >
+              <SunIcon className={styles.segIcon} /> Light
+            </button>
+            <button
+              className={theme === 'dark' ? styles.active : ''}
+              onClick={() => setTheme('dark')}
+            >
+              <MoonIcon className={styles.segIcon} /> Dark
+            </button>
           </div>
         </div>
       </div>

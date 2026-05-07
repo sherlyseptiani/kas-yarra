@@ -19,6 +19,23 @@
   --emerald: #5a8a6a;
 }
 
+[data-theme="dark"] {
+  --bg: #1a1814;
+  --surface: #252320;
+  --surface-2: #2f2c28;
+  --line: #3d3830;
+  --line-2: #4a453c;
+  --text: #f5f3ec;
+  --text-2: #c9c3b8;
+  --text-3: #9a9385;
+  --text-4: #6b6559;
+  --amber: #d4a85c;
+  --amber-soft: #3d3424;
+  --rose: #c97a7a;
+  --rose-soft: #3d2828;
+  --emerald: #7ab88a;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

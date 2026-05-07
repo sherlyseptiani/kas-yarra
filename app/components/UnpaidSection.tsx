@@ -10,6 +10,9 @@ interface UnpaidSectionProps {
   viewMode: 'table' | 'grouped';
   groupBy: 'status' | 'block';
   hideClose: boolean;
+  query: string;
+  setQuery: (q: string) => void;
+  filtered: PendingHousehold[];
 }
 
 interface Group {
@@ -43,7 +46,6 @@ function CopyButton({ unit, name, due }: { unit: string; name: string; due: numb
       onClick={handleCopy}
     >
       <CopyIcon />
-      <span>{copied ? 'Copied' : 'Copy reminder'}</span>
     </button>
   );
 }
@@ -150,21 +152,24 @@ function GroupedView({
                 const cardKey = groupBy === 'block' ? statusOf(r.due).key : g.key;
                 return (
                   <div key={`${r.unit}-${r.name}`} className={`${styles.gcard} ${styles[cardKey]}`}>
-                    <div className={styles.gcTop}>
-                      <div>
+                    <div className={styles.gcHeader}>
+                      <div className={styles.gcHeaderInfo}>
                         <div className={styles.gcName}>{r.name}</div>
                         <div className={`${styles.gcUnit} mono`}>{r.unit}</div>
                       </div>
-                      <div className={`${styles.gcDue} tabular mono`}>{fmtIDR(r.due)}</div>
+                      <div className={styles.gcHeaderActions}>
+                        <div className={`${styles.gcDue} tabular mono`}>{fmtIDR(r.due)}</div>
+                        <CopyButton unit={r.unit} name={r.name} due={r.due} />
+                      </div>
                     </div>
                     <div className={styles.gcBar}>
                       <div className={styles.fill} style={{ width: `${pct}%` }}></div>
                     </div>
                     <div className={styles.gcFoot}>
-                      <div className={`${styles.gcPaid} mono`}>
-                        {fmtIDR(r.paid)} of {fmtIDR(ANNUAL_FEE)} · {pct}%
+                      <div className={`${styles.gcPaid} mono`} data-pct={`${pct}%`}>
+                        <span>{fmtIDR(r.paid)} of {fmtIDR(ANNUAL_FEE)} · {pct}%</span>
+                        {pct}%
                       </div>
-                      <CopyButton unit={r.unit} name={r.name} due={r.due} />
                     </div>
                   </div>
                 );
@@ -177,17 +182,7 @@ function GroupedView({
   );
 }
 
-export default function UnpaidSection({ viewMode, groupBy, hideClose }: UnpaidSectionProps) {
-  const [query, setQuery] = useState('');
-
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return pending;
-    return pending.filter(
-      (r) => r.unit.toLowerCase().includes(q) || r.name.toLowerCase().includes(q)
-    );
-  }, [query]);
-
+export default function UnpaidSection({ viewMode, groupBy, hideClose, query, setQuery, filtered }: UnpaidSectionProps) {
   return (
     <section className={styles.section}>
       <div className={styles.sectionHead}>

@@ -432,10 +432,22 @@
   transition: transform 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
-.gcTop {
+/* Card Header with Copy Button */
+.gcHeader {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  gap: 10px;
+}
+
+.gcHeaderInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.gcHeaderActions {
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -488,4 +500,78 @@
 .gcPaid {
   font-size: 11.5px;
   color: var(--text-3);
+}
+
+@media (max-width: 720px) {
+  .gcards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .gcard {
+    padding: 12px;
+    gap: 8px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .gcHeader {
+    align-items: flex-start;
+  }
+
+  .gcHeaderInfo {
+    min-width: 0;
+  }
+
+  .gcHeaderActions {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .gcName {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .gcUnit {
+    font-size: 9px;
+    margin-top: 0;
+  }
+
+  .gcDue {
+    font-size: 12px;
+  }
+
+  .gcBar {
+    height: 3px;
+  }
+
+  .gcFoot {
+    padding-top: 4px;
+  }
+
+  .gcPaid {
+    font-size: 10px;
+  }
+
+  .gcPaid span {
+    display: none;
+  }
+
+  .btnGhost {
+    padding: 4px 6px;
+    min-width: 28px;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btnGhost svg {
+    width: 12px;
+    height: 12px;
+  }
 }
