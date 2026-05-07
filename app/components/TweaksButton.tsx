@@ -13,7 +13,7 @@ export default function TweaksButton({ onClick }: TweaksButtonProps) {
         <circle cx="12" cy="12" r="3" />
         <path d="M12 1v6m0 6v6m4.22-13.22l-4.24 4.24m-4.24 4.24l-4.24 4.24M23 12h-6m-6 0H1m20.07 4.93l-4.24-4.24m-4.24-4.24l-4.24-4.24" />
       </svg>
-      Setting
+      Settings
     </button>
   );
 }

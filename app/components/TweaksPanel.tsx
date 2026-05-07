@@ -29,7 +29,7 @@ export default function TweaksPanel({
   return (
     <div className={styles.tweaks} role="dialog" aria-label="Tweaks">
       <div className={styles.tweaksHd}>
-        <b>Tweaks</b>
+        <b>Settings</b>
         <button className={styles.tweaksX} onClick={onClose} aria-label="Close">
           <CloseIcon />
         </button>
